@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="description" content="version 1.0.0">
+      <meta name="author" content="DVRPC"> 
+      
+      <title>IDRuM</title>
+
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+      <link rel="stylesheet" href="assets/css/main.css">    
+      <!-- Optional theme -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+
+ 
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+ 
+    
+      <!-- Upgrading the jquery and jquery UI verison with the latest CDN versions-->
+      <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+      <!-- Remove old jquery 
+      <script  src="https://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script> -->
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script> 
+
+      <!-- Latest compiled and minified JavaScript -->
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+      <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
+      <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
+  </head>
+  
+  <body>
+<!-- Start Main Body -->
+  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                <div class="navbar-brand banner">
+                    <div>
+                     <a id="header-link" href="https://www.dvrpc.org/Transportation/TSMO/IDRuM/" target="_blank"><img id="full-logo" src="assets/img/banner.png" alt="Idrum logo"/></a> 
+                   <!--  <a id="header-link" href="http://www.dvrpc.org" target="_blank"><img id="dvrpc-logo" src="assets/img/dvrpc_logo_small.png" alt="DVRPC logo"/></a>
+                    <img id="idrum-logo" src="assets/img/idrum.png" alt="idrum logo"/> -->
+                  </div>
+                </div>
+
+                </div>
+
+                <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                    <div class="nav navbar-nav navbar-right">
+                    <button type="button" style=" margin:13px 10px 0px 4px;float:right;color:#1931A5;background-color:#d9dadc;" class="btn btn-sm"<a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" onclick="$('#aboutModal').modal('show'); return false;"><i class="fa fa-info-circle" style="color:#1931A5"></i>&nbsp;&nbsp;<b>About</b></a>
+                    </button>
+                    </div>
+                </div>
+
+            </div>
+    </div>
+ 
+
+<div class="row" id="container">
+
+    <div class="col-sm-4 col-lg-4" id="sidebar" >
+   
+        <div id="howto" class="alert alert-info alert-block nomobile" style="margin-top:10px;">
+            <button class="close" data-dismiss="alert" type="button">×</button>
+            <h4 style="margin: 0;">Quick Guide</h4>
+            <p>- Zoom to your area of interest and click on the incident location segment to view detailed PennDOT Emergency Detour Routes for that particular location.<br>
+              - Select a County Name or Route Shield below to quickly zoom to that location or simply use the map to find your area of intrest.</p>
+        </div>
+
+        <!-- Place holder for Remove Filter -->
+       <!--   <div class="radio" style="margin-left:30px"><label><input id='none' type='radio' name="optradio" value='none' onClick='javascript:void(0);toggleLayer(none);' >Remove Filter</label></div> 
+            <div class="session" style="margin-left: 30px;">
+        <h2>Day of the week</h2>
+        <div class="row" id="filters">
+          <input
+            id="all"
+            type="radio"
+            name="toggle"
+            value="all"
+            checked="checked"
+          />
+          <label for="none">NONE</label>
+          <input id="BUC" type="radio" name="toggle" value="BUC" />
+          <label for="BUC">BUC</label>
+          <input id="CHE" type="radio" name="toggle" value="CHE" />
+          <label for="CHE">CHE</label>
+        </div>
+      </div>-->
+
+            <h4 class="text-primary button5" style="margin:0px 0px 0px 15px;text-align: center;display:none" id='PA' onClick='javascript:void(0);toggleLayer(this.id);'><strong class="text-uppercase"> Remove Filter </strong></h4>
+
+        <div class="panel panel-primary">
+          <div class="panel-body">
+                 
+            <h4 class="text-on-pannel text-primary button5" id='BUC' onClick='toggleLayer(this.id);'><strong class="text-uppercase"> Bucks </strong></h4>
+             
+             <!-- Legend -->
+              <div id="legend-stack">
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/I095.png" class="legend-button shadowfilter" id='BUC_I095' onClick='toggleLayer(this.id);'  alt="I-95 Highway Route Shield"/>
+                    </label>
+                  </div>  
+                    <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/I295.png" class="legend-button shadowfilter" id='BUC_I295' onClick='toggleLayer(this.id);'  alt="I-295 Highway Route Shield"/>
+                    </label>
+                  </div> 
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/US001.png" class="legend-button shadowfilter" id='BUC_US001' onClick='toggleLayer(this.id);' alt="US 1 Highway Route Shield"/>
+                    </label>
+                  </div> 
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/US013.png" class="legend-button shadowfilter" id='BUC_US013' onClick='toggleLayer(this.id);' alt="US 13 Highway Route Shield"/>
+                    </label>
+                  </div> 
+                  <div class="legend-icons" >
+                    <label>
+                    <img src="assets/img/shields/US202.png" class="legend-button shadowfilter" id='BUC_US202' onClick='toggleLayer(this.id);' alt="US 202 Highway Route Shield"/>
+                    </label>
+                  </div>  
+                   <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/PA063.png" class="legend-button shadowfilter" id='BUC_PA063' onClick='toggleLayer(this.id);' alt="PA 63 Highway Route Shield"/>
+                    </label>
+                  </div> 
+                  <div class="legend-icons" >
+                    <label>
+                    <img src="assets/img/shields/PA309.png" class="legend-button shadowfilter" id='BUC_PA309' onClick='toggleLayer(this.id);'  alt="PA 309 Highway Route Shield"/>
+                    </label>
+                  </div>  
+                   <div class="legend-icons" >
+                    <label>
+                    <img src="assets/img/shields/PA611.png" class="legend-button shadowfilter" id='BUC_PA611' onClick='toggleLayer(this.id);'  alt="PA 611 Highway Route Shield"/>
+                    </label>
+                  </div> 
+              </div> 
+          </div>
+        </div>
+
+        <!-- Start Shield Panel -->
+        <div class="panel panel-primary p2">
+          <div class="panel-body">
+            <h4 class="text-on-pannel text-primary button5" id='CHE' onClick='toggleLayer(this.id);'><strong class="text-uppercase"> Chester </strong></h4>
+              <div id="legend-stack">
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/US001.png" class="legend-button shadowfilter" onClick='toggleLayer(this.id);' id='CHE_US001'alt="US 1 Highway Route Shield"/>
+                    </label>
+                  </div>  
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/US030.png" class="legend-button shadowfilter" onClick='toggleLayer(this.id);' id='CHE_US030' alt="US 30 Highway Route Shield"/>
+                    </label>
+                  </div> 
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/US202.png" class="legend-button shadowfilter" onClick='toggleLayer(this.id);' id='CHE_US202' alt="US 202 Highway Route Shield"/>
+                    </label>
+                  </div> 
+                   <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/US422.png" class="legend-button shadowfilter" onClick='toggleLayer(this.id);' id='CHE_US422' alt="US 422 Highway Route Shield"/>
+                    </label>
+                  </div>  
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/PA100.png" class="legend-button shadowfilter" onClick='toggleLayer(this.id);' id='CHE_PA100' alt="PA 100 Highway Route Shield"/>
+                    </label>
+                  </div>  
+              </div> 
+          </div>
+        </div>
+        <!-- End Shield Panel -->
+        <!-- Start Shield Panel -->
+        <div class="panel panel-primary p2">
+          <div class="panel-body">
+            <h4 class="text-on-pannel text-primary button5" id='DEL' onClick='toggleLayer(this.id);'><strong class="text-uppercase"> Delaware </strong></h4>
+              <div id="legend-stack">
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/I095.png" class="legend-button shadowfilter" onClick='toggleLayer(this.id);' id='DEL_I095' alt="I-95 Highway Route Shield"/>
+                    </label>
+                  </div>  
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/I476.png" class="legend-button shadowfilter" onClick='toggleLayer(this.id);' id='DEL_I476' alt="I-476 Highway Route Shield"/>
+                    </label>
+                  </div> 
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/US001.png" class="legend-button shadowfilter" onClick='toggleLayer(this.id);' id='DEL_US001' alt="US 1 Highway Route Shield"/>
+                    </label>
+                  </div> 
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/US322.png" class="legend-button shadowfilter" onClick='toggleLayer(this.id);' id='DEL_US322' alt="US 322 Highway Route Shield"/>
+                    </label>
+                  </div>  
+
+              </div> 
+          </div>
+        </div>
+        <!-- End Shield Panel -->
+        <!-- Start Shield Panel -->
+        <div class="panel panel-primary p2">
+          <div class="panel-body">
+            <h4 class="text-on-pannel text-primary button5" id='MON' onClick='toggleLayer(this.id);'><strong class="text-uppercase"> Montgomery</strong></h4>
+              <div id="legend-stack">
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/I076.png" class="legend-button shadowfilter" style="display:block; height: 43px; width:42px; margin: 2px 0px 5px 5px;" onClick='toggleLayer(this.id);' id='MON_I076'alt="I-76 Highway Route Shield"/>
+                    </label>
+                  </div>  
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/I476.png" class="legend-button shadowfilter" onClick='toggleLayer(this.id);' id='MON_I476'alt="I-476 Highway Route Shield"/>
+                    </label>
+                  </div> 
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/US202.png" class="legend-button shadowfilter" onClick='toggleLayer(this.id);' id='MON_US202' alt="US 202 Highway Route Shield"/>
+                    </label>
+                  </div> 
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/US422.png" class="legend-button shadowfilter" onClick='toggleLayer(this.id);' id='MON_US422' alt="US 422 Highway Route Shield"/>
+                    </label>
+                  </div>  
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/PA100.png" class="legend-button shadowfilter" onClick='toggleLayer(this.id);' id='MON_PA100' alt="PA 100 Highway Route Shield"/>
+                    </label>
+                  </div> 
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/PA309.png" class="legend-button shadowfilter" onClick='toggleLayer(this.id);' id='MON_PA309' alt="PA 309 Highway Route Shield"/>
+                    </label>
+                  </div>  
+              </div> 
+          </div>
+        </div>
+      <!-- End Shield Panel -->
+      <!-- Start Shield Panel -->
+        <div class="panel panel-primary p2">
+          <div class="panel-body">
+            <h4 class="text-on-pannel text-primary button5" id='PHI' onClick='toggleLayer(this.id);'><strong class="text-uppercase"> Philadelphia </strong></h4>
+              <div id="legend-stack">
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/I076.png" class="legend-button shadowfilter" style="display:block; height: 43px; width:42px; margin: 2px 0px 5px 5px;" onClick='toggleLayer(this.id);' id='PHI_I076'alt="I-76 Highway Route Shield"/>
+                    </label>
+                  </div>  
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/I095.png" class="legend-button shadowfilter" onClick='toggleLayer(this.id);' id='PHI_I095' alt="I-95 Highway Route Shield"/>
+                    </label>
+                  </div> 
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/I676.png" class="legend-button shadowfilter" onClick='toggleLayer(this.id);' id='PHI_I676' alt="I-676 Highway Route Shield"/>
+                    </label>
+                  </div> 
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/US001.png" class="legend-button shadowfilter" onClick='toggleLayer(this.id);' id='PHI_US001' alt="US 1 Highway Route Shield"/>
+                    </label>
+                  </div>  
+                  <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/PA063.png" class="legend-button shadowfilter" onClick='toggleLayer(this.id);' id='PHI_PA063' alt="PA 63 Highway Route Shield"/>
+                    </label>
+                  </div> 
+                    <div class="legend-icons">
+                    <label>
+                    <img src="assets/img/shields/Bridges.png" class="legend-button shadowfilter" onClick='toggleLayer(this.id);' id='PHI_Bridges' alt="City Bridge Icon"/>
+                    </label>
+                  </div>   
+              </div> 
+          </div>
+        </div>
+      <!-- End Shield Panel -->
+    </div>
+    
+        <!-- Map -->
+    <div class="col-sm-8 col-lg-8" id="map">
+          
+          <div class="quakeInfo">
+          <!--   <div id="row"><span id="mag"></span></div> -->
+          <div id="row"><span>
+              <div class="column" id="shield">Hover over an incident location for more information</div>
+              <div class="column" id="mag"></div>
+              </span></div>
+          </div>
+          
+           <div id="legendBox" class="legend">
+            <i class="glyphicon glyphicon-minus legend-incident"></i>Incident Location<br>
+            <i class="fa fa-circle legend-access"></i>Limited Access Intersection
+          </div>
+           <!-- Zoom -->
+        <a onClick='toggleLayer(this.id);' id='zoomtoregion'></a>   
+    </div>
+   
+</div>      
+      </div>
+
+</div>
+            <!-- About Modal -->
+        <div class="modal fade" id="aboutModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header"  style='border: none;'>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">Interactive Detour Route Mapping</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div> <img src="assets/img/idrum.png" alt="IDRUm logo" class="idrum-logo"/> <p style="margin: -12px 0px 0px 45px;display:block"><span><p>DVRPC in partnership with PennDOT District 6, has developed the web-based Interactive Detour Route Mapping (IDRuM) application. It organizes all existing PennDOT Emergency Detour Routes within the Southeastern Pennsylvania region into a manageable, easy-to-use interface. DVRPC has worked with PennDOT District 6 to update and reformat the detour route maps for all limited access highways within the region, replacing outdated paper maps with digital PDF maps. IDRuM compiles the PDF detour maps into a simple, "point-and-click" application. The detour route PDFs can be used by first responders, planners, and/or anyone who is in need of DOT-approved detour route plans.</p></span> 
+              
+                           <p>
+                            <h4>For more information:</h4>
+                                <address>
+                                Paul Carafides | Manager, Traffic Management Program, Office of Transportation Operations Management<br/>
+                                <a href="mailto:pcarafides@dvrpc.org" class="one">pcarafides@dvrpc.org</a><br/>
+                                (215) 238-2896
+                                </address>
+
+                            </p>  
+                            <hr>
+                              <div id="about_footer"><p>This web page is a public resource of general information. The Delaware Valley Regional Planning Commission (DVRPC) makes no warranty, representation, or guarantee as to the content, sequence, accuracy, timeliness, or completeness of any of the spatial data or database information provided herein. DVRPC and partner state, local, and other agencies shall assume no liability for errors, omissions, or inaccuracies in the information provided regardless of how caused; or any decision made or action taken or not taken by any person relying on any information or data furnished within.</p>
+
+                            <p>For more information, visit <a href="https://www.dvrpc.org/Policies/" target="_blank" class="one">https://www.dvrpc.org/Policies/</a></p>
+                            <p>Product abstract - <a href="https://www.dvrpc.org/Products/WEB19032" target="_blank" class="one">https://www.dvrpc.org/Products/WEB19032</a></span></p>
+                            </div>
+                            </div>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
+  
+<script src="assets/js/app.js"></script>
+<script src="assets/js/zoom.js"></script>
+
+  <script>var _gaq = [['_setAccount', 'UA-9825778-1'], ['_trackPageview']];</script>
+  <script async src="//www.google-analytics.com/ga.js"></script>
+
+<!-- End Main Body -->
+  </body>
+</html>
