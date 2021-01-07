@@ -2,7 +2,7 @@
   var TTI, cnty, mask;
  
   var hoveredStateId = null;
-  $('#aboutModal').modal('show');
+  // $('#aboutModal').modal('show');
   // Target the span elements used in the sidebar
   var magDisplay = document.getElementById('mag');
   var shieldDisplay = document.getElementById('shield');
@@ -66,11 +66,11 @@
   // This adds the map
     var map = new mapboxgl.Map({
         container: 'map', 
-   //    style: 'mapbox://styles/mapbox/light-v9', 
+        style: 'mapbox://styles/mapbox/light-v9', 
        // also uncomment line 203 (or near there) admin-bg
-        style:'mapbox://styles/crvanpollard/ck5fpyqti0v971itf7edp2eyd',
-        center: [-75.4, 40.15], 
-        zoom: 8,   
+     //   style:'mapbox://styles/crvanpollard/ck5fpyqti0v971itf7edp2eyd',
+        center: [-74.777760,39.982220], 
+        zoom: 8.5,   
         attributionControl: false
     });
 
@@ -81,8 +81,8 @@
      //   console.log(p);
         if (p > 0) {
           map.flyTo({
-            center: [-75.4, 40.15], 
-            zoom: 8,
+            center: [-74.777760,39.982220], 
+            zoom: 8.5,
             speed: 0.1,
           });
         }
@@ -95,8 +95,8 @@
     // Zoom to Extent
     document.getElementById('zoomtoregion').addEventListener('click', function () {
         map.flyTo({
-            center: [-75.4, 40.15], 
-            zoom: 8,
+            center: [-74.777760,39.982220], 
+            zoom: 8.5,
             speed: 0.5
         });
     });
@@ -128,12 +128,12 @@ map.on('load', function () {
               },
               "filter": 
               //["==","dvrpc","Yes"]
-              ["all",["!=","name","Chester"],["!=","name","Bucks"],["!=","name","Delaware"],["!=","name","Montgomery"],["!=","name","Philadelphia"]]
+              ["all",["!=","name","Burlington"],["!=","name","Camden"],["!=","name","Gloucester"],["!=","name","Mercer"]]
             });
 
             map.addSource('cnty', {
             'type': 'geojson',
-               'data':"https://arcgis.dvrpc.org/portal/rest/services/Boundaries/CountyBoundaries/FeatureServer/0/query?where=co_name+%3D+%27Bucks%27+or+co_name+%3D+%27Chester%27+or+co_name+%3D+%27Delaware%27+or+co_name+%3D+%27Montgomery%27+or+co_name+%3D+%27Philadelphia%27&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson"
+               'data':"https://arcgis.dvrpc.org/portal/rest/services/Boundaries/CountyBoundaries/FeatureServer/0/query?where=co_name+%3D+%27Burlington%27+or+co_name+%3D+%27Camden%27+or+co_name+%3D+%27Gloucester%27+or+co_name+%3D+%27Mercer%27&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson"
             });
             
             map.addLayer({
@@ -161,20 +161,20 @@ map.on('load', function () {
                'fill-color': 'rgba(0,0,0,0.1)'
             },
              filter: 
-                 ["all",["==","Det_ID","PA"]]
+                 ["all",["==","Det_ID","NJ"]]
             });
 
 
         // When the map loads, add the data from the USGS earthquake API as a source
         map.addSource('earthquakes', {
           'type': 'geojson',
-          'data': 'https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/IDRuM/FeatureServer/0/query?where=1%3D1&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=pgeojson',
+          'data': 'https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/IDRuM/FeatureServer/4/query?where=1%3D1&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=pgeojson',
           'generateId': true // This ensures that all features have unique IDs
         });
         
         map.addSource('route', {
           'type': 'geojson',
-          'data':" https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/IDRuM/FeatureServer/3/query?where=1%3D1&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=pgeojson",
+          'data':" https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/IDRuM/FeatureServer/6/query?where=1%3D1&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=pgeojson",
           'generateId': true // This ensures that all features have unique IDs
         });
 
@@ -198,9 +198,9 @@ map.on('load', function () {
             ]
           }
           //  firstSymbolId
-     //   });
+        });
        //  }
-  }, 'admin-1-boundary-bg');
+ // }, 'admin-1-boundary-bg');
 
          map.on("click", function(e) {
           var features = map.queryRenderedFeatures(e.point, { layers: ["route-viz"] });

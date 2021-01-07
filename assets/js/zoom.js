@@ -1,55 +1,47 @@
 // Zoom to look up
-   document.getElementById('PA').addEventListener('click', function () {
+   document.getElementById('NJ').addEventListener('click', function () {
         $("div h4:contains('Remove Filter')").hide();
         map.flyTo({
-            center: [-75.4, 40.15], 
+            center: [-74.824, 39.87], 
             zoom: 8,
             speed: 0.5
         });
 
     });
 
-    document.getElementById('BUC').addEventListener('click', function () {
+    document.getElementById('BUR').addEventListener('click', function () {
         $("div h4:contains('Remove Filter')").show();
         map.flyTo({
-            center: [-75.106870407001679,40.336933676997319], 
+            center: [-74.66,39.877809], 
             zoom: 9,
             speed: 0.5
         });
     });
-    document.getElementById('CHE').addEventListener('click', function () {
+    document.getElementById('CAM').addEventListener('click', function () {
       $("div h4:contains('Remove Filter')").show();
       map.flyTo({
-          center: [-75.748451366853885,39.973209680949878], 
+          center: [-74.95,39.803], 
           zoom: 9,
           speed: 0.5
       });
     });
-      document.getElementById('DEL').addEventListener('click', function () {
+      document.getElementById('GLO').addEventListener('click', function () {
       $("div h4:contains('Remove Filter')").show();
       map.flyTo({
-          center: [-75.398773932333029,39.916606269175929], 
+          center: [-75.141,39.717], 
           zoom: 10,
           speed: 0.5
       });
     });
-      document.getElementById('MON').addEventListener('click', function () {
+      document.getElementById('MER').addEventListener('click', function () {
       $("div h4:contains('Remove Filter')").show();
       map.flyTo({
-          center: [-75.367334983140267,40.210850123794955], 
+          center: [-74.701,40.283], 
           zoom: 9,
           speed: 0.5
       });
     });
-    document.getElementById('PHI').addEventListener('click', function () {
-      $("div h4:contains('Remove Filter')").show();
-      map.flyTo({
-          center: [-75.13417520195253,40.007663105527399], 
-          zoom: 10,
-          speed: 0.5
-      });
-    });
-// Bucks County
+// Burlington County
     document.getElementById('BUC_I095').addEventListener('click', function () {
         $("div h4:contains('Remove Filter')").show();
       map.flyTo({
