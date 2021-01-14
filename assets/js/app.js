@@ -36,7 +36,7 @@
          map.setFilter('county2', ['match', ['get', 'name'], ['New Castle', 'Chester', 'Delaware', 'Montgomery','Bucks','Philadelphia'], false, true]
         );
         } else {
-         map.setFilter('county2', ['match', ['get', 'name'], ['Chester', 'Delaware', 'Montgomery','Bucks','Philadelphia'], false, true]);
+         map.setFilter('county2', ['match', ['get', 'name'], ['Burlington', 'Camden', 'Gloucester','Mercer'], false, true]);
         //  map.setFilter('county2',["all",["!=","name","Chester"],["!=","name","Bucks"],["!=","name","Delaware"],["!=","name","Montgomery"],["!=","name","Philadelphia"]
         //, e]);
        return layer;
@@ -151,7 +151,7 @@ map.on('load', function () {
             type: 'fill',
             source: {
                   'type': 'geojson',
-                  'data':'https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/IDRuM/FeatureServer/7/query?where=1%3D1&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson'
+                  'data':'https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/IDRuM/FeatureServer/8/query?where=1%3D1&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson'
             },
             layout: {
              "visibility":"visible",
@@ -205,7 +205,7 @@ map.on('load', function () {
          map.on("click", function(e) {
           var features = map.queryRenderedFeatures(e.point, { layers: ["route-viz"] });
           if (features.length) {
-            window.open('https://www.dvrpc.org/asp/idrum/Online/PDF/PA/PADist06/' + features[0].properties.County +'/'+ features[0].properties.State + features[0].properties.CNTY + features[0].properties.Route +'/'+ features[0].properties.Det_ID +'.pdf', '_blank');
+            window.open('https://www.dvrpc.org/asp/idrum/Online/PDF/NJ/NJDOT_South/' + features[0].properties.County +'/'+ features[0].properties.State + features[0].properties.CNTY + features[0].properties.Route +'/'+ features[0].properties.Det_ID +'.pdf', '_blank');
              }
         });
 
