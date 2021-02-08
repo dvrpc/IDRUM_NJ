@@ -15,25 +15,33 @@
  
       map.setFilter('mask', ['==', ['get', 'Det_ID'], e]);
   //    return layer;
-       if ( layer === 'MON_US422' ) {
+       if ( layer === 'GLO_NJTP' || layer === 'GLO_I295'|| layer === 'GLO_US130'|| layer === 'GLO_NJ045'|| layer === 'GLO_NJ077' ) {
              //         filterDay = ['match', ['get', 'Day'], ['Sat', 'Sun'], false, true];
-         map.setFilter('county2', ['match', ['get', 'name'], ['Berks', 'Chester', 'Delaware', 'Montgomery','Bucks','Philadelphia'], false, true]
+         map.setFilter('county2', ['match', ['get', 'name'], ['Burlington', 'Camden', 'Gloucester','Mercer','Salem'], false, true]
         );
-        } else if ( layer === 'CHE_US422' ) {
-             //         filterDay = ['match', ['get', 'Day'], ['Sat', 'Sun'], false, true];
-         map.setFilter('county2', ['match', ['get', 'name'], ['Berks', 'Chester', 'Delaware', 'Montgomery','Bucks','Philadelphia'], false, true]
+        } else if ( layer === 'GLO_NJ055' || layer === 'GLO_NJ047') { 
+         map.setFilter('county2', ['match', ['get', 'name'], ['Burlington', 'Camden', 'Gloucester','Mercer','Salem','Cumberland'], false, true]
         );
-        } else if ( layer === 'MON_PA100' ) {
-             //         filterDay = ['match', ['get', 'Day'], ['Sat', 'Sun'], false, true];
-         map.setFilter('county2', ['match', ['get', 'name'], ['Berks', 'Chester', 'Delaware', 'Montgomery','Bucks','Philadelphia'], false, true]
+       } else if ( layer === 'MER_NJ029' ||layer === 'MER_NJ031') { 
+        map.setFilter('county2', ['match', ['get', 'name'], ['Burlington', 'Camden', 'Gloucester','Mercer','Hunterdon'], false, true]
         );
-        } else if ( layer === 'CHE_US001' ) {
-             //         filterDay = ['match', ['get', 'Day'], ['Sat', 'Sun'], false, true];
-         map.setFilter('county2', ['match', ['get', 'name'], ['Cecil', 'Chester', 'Delaware', 'Montgomery','Bucks','Philadelphia'], false, true]
+      } else if ( layer === 'MER_US206' ) { 
+        map.setFilter('county2', ['match', ['get', 'name'], ['Burlington', 'Camden', 'Gloucester','Mercer','Somerset'], false, true]
         );
-          } else if ( layer === 'DEL_I095' ) {
-             //         filterDay = ['match', ['get', 'Day'], ['Sat', 'Sun'], false, true];
-         map.setFilter('county2', ['match', ['get', 'name'], ['New Castle', 'Chester', 'Delaware', 'Montgomery','Bucks','Philadelphia'], false, true]
+      } else if ( layer === 'MER_US130' ) { 
+        map.setFilter('county2', ['match', ['get', 'name'], ['Burlington', 'Camden', 'Gloucester','Mercer','Middlesex'], false, true]
+        );
+      } else if ( layer === 'MER_NJ027' ) { 
+        map.setFilter('county2', ['match', ['get', 'name'], ['Burlington', 'Camden', 'Gloucester','Mercer','Middlesex','Somerset'], false, true]
+        );
+      } else if ( layer === 'MER_NJ027' ) { 
+        map.setFilter('county2', ['match', ['get', 'name'], ['Burlington', 'Camden', 'Gloucester','Mercer','Middlesex','Somerset'], false, true]
+        );
+      } else if ( layer === 'MER_US001' ) { 
+        map.setFilter('county2', ['match', ['get', 'name'], ['Burlington', 'Camden', 'Gloucester','Mercer','Middlesex','Bucks'], false, true]
+        );
+      } else if ( layer === 'MER_NJTP' || layer === 'MER_US130'||layer === 'MER_NJ033' ) { 
+        map.setFilter('county2', ['match', ['get', 'name'], ['Burlington', 'Camden', 'Gloucester','Mercer','Middlesex'], false, true]
         );
         } else {
          map.setFilter('county2', ['match', ['get', 'name'], ['Burlington', 'Camden', 'Gloucester','Mercer'], false, true]);
